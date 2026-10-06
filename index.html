@@ -102,7 +102,7 @@ nav {
   top: 0; left: 0; right: 0;
   z-index: 100;
   padding: 0 40px;
-  height: 64px;
+  height: 82px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -300,101 +300,33 @@ nav {
   margin: 0 auto 44px;
 }
 
-/* ── EMAIL FORM ── */
-.form-wrapper {
+/* ── APP LINK ── */
+.launch-actions {
   max-width: 520px;
   margin: 0 auto 24px;
 }
 
-.form-tabs {
-  display: flex;
-  background: rgba(255,255,255,0.06);
+.launch-btn {
+  display: inline-block;
+  padding: 16px 32px;
   border-radius: 12px;
-  padding: 4px;
-  margin-bottom: 16px;
-  border: 1px solid rgba(255,255,255,0.08);
-}
-
-.form-tab {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  border-radius: 9px;
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  font-family: 'Barlow', sans-serif;
-  transition: all 0.2s;
-  background: transparent;
-  color: rgba(255,255,255,0.4);
-}
-
-.form-tab.active {
-  background: white;
-  color: var(--navy);
-}
-
-.form-row {
-  display: flex;
-  gap: 10px;
-}
-
-.form-input {
-  flex: 1;
-  padding: 14px 18px;
-  border-radius: 12px;
-  border: 1.5px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.06);
-  color: white;
-  font-size: 15px;
-  font-family: 'Barlow', sans-serif;
-  outline: none;
-  transition: all 0.2s;
-  backdrop-filter: blur(10px);
-}
-
-.form-input::placeholder { color: rgba(255,255,255,0.3); }
-.form-input:focus {
-  border-color: var(--orange);
-  background: rgba(234,88,12,0.08);
-  box-shadow: 0 0 0 3px rgba(234,88,12,0.15);
-}
-
-.form-btn {
-  padding: 14px 24px;
-  border-radius: 12px;
-  border: none;
   background: var(--orange);
   color: white;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 800;
-  cursor: pointer;
   font-family: 'Barlow', sans-serif;
-  white-space: nowrap;
+  text-decoration: none;
   transition: all 0.2s;
-  position: relative;
-  overflow: hidden;
 }
 
-.form-btn::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
-  opacity: 0;
-  transition: opacity 0.2s;
+.launch-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(234,88,12,0.4); }
+
+.launch-btn:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 4px;
 }
 
-.form-btn:hover::after { opacity: 1; }
-.form-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(234,88,12,0.4); }
-
-.contractor-note {
-  font-size: 12px;
-  color: rgba(255,255,255,0.3);
-  margin-top: 12px;
-}
-
-.contractor-note span { color: #fb923c; font-weight: 700; }
+.launch-note { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 14px; }
 
 /* ── SOCIAL PROOF ── */
 .social-proof {
@@ -421,20 +353,11 @@ nav {
   background: rgba(255,255,255,0.2);
 }
 
-/* ── MAP PREVIEW ── */
+/* ── CODED MAP DEMO ── */
 .map-section {
   position: relative;
   padding: 80px 40px;
   overflow: hidden;
-}
-
-.map-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, var(--navy) 0%, transparent 15%, transparent 85%, var(--navy) 100%);
-  z-index: 2;
-  pointer-events: none;
 }
 
 .map-container {
@@ -543,33 +466,18 @@ nav {
   font-weight: 800;
 }
 
-.pin-count {
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--navy);
-  color: white;
-  font-size: 8px;
-  font-weight: 800;
-  padding: 2px 6px;
-  border-radius: 8px;
-  white-space: nowrap;
-  font-family: 'Barlow', sans-serif;
-  border: 1.5px solid rgba(255,255,255,0.2);
-}
-
 /* Cluster */
 .cluster {
   position: absolute;
   transform: translate(-50%, -50%);
-  cursor: pointer;
   animation: pinDrop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   opacity: 0;
 }
 
 .cluster-outer {
   border-radius: 50%;
+  background: rgba(234,88,12,0.2);
+  border: 2px solid rgba(234,88,12,0.4);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -577,8 +485,9 @@ nav {
 
 .cluster-inner {
   border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 3px 12px rgba(234,88,12,0.45);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   color: white;
@@ -602,57 +511,94 @@ nav {
 /* Map overlay UI */
 .map-ui-top {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  right: 12px;
+  top: 14px;
+  left: 14px;
+  right: 14px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 12px;
   z-index: 10;
 }
 
-.map-count-badge {
-  background: rgba(15,23,42,0.85);
-  color: white;
-  border-radius: 10px;
-  padding: 7px 13px;
-  font-size: 12px;
-  font-weight: 700;
-  font-family: 'Barlow', sans-serif;
-  backdrop-filter: blur(4px);
-}
-
-.map-legend-btn {
-  background: rgba(255,255,255,0.95);
-  border: none;
-  border-radius: 10px;
-  padding: 7px 13px;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--navy);
-  cursor: pointer;
-  font-family: 'Barlow', sans-serif;
+.map-control {
+  width: 220px;
+  min-height: 42px;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px 13px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  font-family: 'Barlow', sans-serif;
+  box-shadow: 0 3px 10px rgba(15,23,42,0.18);
 }
+
+.map-category { justify-content: space-between; }
+.map-chevron {
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid var(--orange);
+  border-bottom: 2px solid var(--orange);
+  transform: rotate(45deg) translateY(-2px);
+}
+.map-location-icon { display: inline-flex; flex-shrink: 0; }
+
+.map-radius {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 7px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(15,23,42,0.18);
+  font-family: 'Barlow', sans-serif;
+  white-space: nowrap;
+}
+.map-radius-label {
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 0 5px;
+}
+.map-radius-option {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 7px;
+  border-radius: 9px;
+}
+.map-radius-option.active { background: var(--orange); color: #fff; }
 
 .map-add-btn {
   position: absolute;
-  bottom: 16px;
-  right: 16px;
+  bottom: 14px;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   background: var(--orange);
   color: white;
-  border: none;
   border-radius: 12px;
-  padding: 12px 18px;
-  font-size: 13px;
+  padding: 11px 15px;
+  font-size: 14px;
   font-weight: 800;
-  cursor: pointer;
   font-family: 'Barlow', sans-serif;
-  animation: pulse 2.5s infinite;
+  text-decoration: none;
+  box-shadow: 0 3px 10px rgba(15,23,42,0.18);
   z-index: 10;
 }
+
+.map-add-btn:hover { background: var(--orange-dark); }
+.map-add-btn:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
 
 /* ── HOW IT WORKS ── */
 .how-section {
@@ -884,10 +830,11 @@ nav {
   border: 1px solid rgba(234,88,12,0.3);
 }
 
-.pricing-pill.pro {
-  background: rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.6);
-  border: 1px solid rgba(255,255,255,0.1);
+.pricing-detail {
+  color: rgba(255,255,255,0.55);
+  font-size: 13px;
+  line-height: 1.5;
+  margin: -12px 0 24px;
 }
 
 /* ── STATS ── */
@@ -1113,27 +1060,10 @@ footer {
   color: rgba(255,255,255,0.25);
 }
 
-/* ── SUCCESS STATE ── */
-.success-msg {
-  display: none;
-  align-items: center;
-  gap: 10px;
-  background: rgba(22,163,74,0.15);
-  border: 1px solid rgba(22,163,74,0.3);
-  border-radius: 12px;
-  padding: 14px 20px;
-  color: #4ade80;
-  font-size: 14px;
-  font-weight: 600;
-  max-width: 520px;
-  margin: 0 auto;
-}
-
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   nav { padding: 0 20px; }
   .hero { padding: 90px 24px 60px; }
-  .form-row { flex-direction: column; }
   .split-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
@@ -1144,31 +1074,26 @@ footer {
   footer { flex-direction: column; align-items: flex-start; }
   .footer-links { flex-wrap: wrap; gap: 16px; }
 }
+
+@media (max-width: 600px) {
+  .map-ui-top { top: 10px; left: 10px; right: 10px; gap: 8px; }
+  .map-control { width: auto; min-width: 0; flex: 1; min-height: 38px; padding: 8px; font-size: 11px; }
+  .map-radius { left: 10px; right: 10px; bottom: 10px; gap: 1px; overflow-x: auto; }
+  .map-radius-label { font-size: 10px; padding: 0 3px; }
+  .map-radius-option { font-size: 10px; padding: 5px 4px; }
+  .map-add-btn { right: 10px; bottom: 60px; padding: 9px 11px; font-size: 12px; }
+}
 </style>
+<link rel="stylesheet" href="assets/logo.css">
 </head>
 <body>
 
 <!-- ── NAV ── -->
 <nav>
   <a class="nav-logo" href="#">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 140" style="height:76px;width:auto;">
-  <g transform="translate(10, 8)">
-    <path d="M60 4 C38 4 20 22 20 44 C20 72 60 112 60 112 C60 112 100 72 100 44 C100 22 82 4 60 4 Z" fill="#ea580c"/>
-    <circle cx="60" cy="44" r="22" fill="#c2440a" opacity="0.6"/>
-    <g transform="translate(60,44)">
-      <polygon points="0,-14 -13,0 13,0" fill="white" opacity="0.95"/>
-      <rect x="-10" y="0" width="20" height="14" fill="white" opacity="0.95" rx="1"/>
-      <rect x="-4" y="5" width="8" height="9" fill="#c2440a" rx="1"/>
-      <rect x="-9" y="2" width="5" height="5" fill="#c2440a" rx="0.5"/>
-      <rect x="4" y="2" width="5" height="5" fill="#c2440a" rx="0.5"/>
-    </g>
-  </g>
-  <line x1="128" y1="24" x2="128" y2="116" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round"/>
-  <text x="146" y="82" font-family="Montserrat, Arial, sans-serif" font-weight="800" font-size="62" fill="#ea580c" letter-spacing="-1">Neighbrr</text>
-  <text x="148" y="108" font-family="Montserrat, Arial, sans-serif" font-weight="600" font-size="15" fill="white" letter-spacing="3" opacity="0.85">DROP A PIN, HELP A NEIGHBRR</text>
-</svg>
+    <img src="assets/neighbrr-logo.svg" alt="Neighbrr" class="site-logo site-logo-nav">
   </a>
-  <a href="#waitlist" class="nav-cta">Get Early Access →</a>
+  <a href="https://neighbrr.app/" class="nav-cta">Open Neighbrr →</a>
 </nav>
 
 <!-- ── HERO ── -->
@@ -1186,33 +1111,15 @@ footer {
       See which contractors your actual neighbors hired — verified by both sides. Real trust. Real streets. Real results.
     </p>
 
-    <!-- Email form -->
-    <div class="form-wrapper fade-up-4" id="waitlist">
-      <div class="form-tabs">
-        <button class="form-tab active" onclick="setTab('homeowner', this)">🏡 I'm a Homeowner</button>
-        <button class="form-tab" onclick="setTab('contractor', this)">🔨 I'm a Contractor</button>
-      </div>
-      <div class="form-row">
-        <input type="email" class="form-input" id="emailInput" placeholder="Enter your email address" />
-        <button class="form-btn" onclick="submitForm()">
-          <span id="btnText">Get Early Access →</span>
-        </button>
-      </div>
-      <p class="contractor-note" id="formNote">
-        No spam. No credit card. Just early access when we launch in your neighborhood.
-      </p>
-    </div>
-
-    <div class="success-msg" id="successMsg">
-      ✅ You're on the list! We'll notify you when Neighbrr launches in your neighborhood.
+    <div class="launch-actions fade-up-4">
+      <a class="launch-btn" href="https://neighbrr.app/">Open Neighbrr →</a>
+      <p class="launch-note">Free for homeowners. Contractors can join in the app.</p>
     </div>
 
     <div class="social-proof fade-up-5">
       <div class="proof-item">🏡 Free for homeowners</div>
       <div class="proof-dot"></div>
-
-      <div class="proof-dot"></div>
-      <div class="proof-item">🔒 No credit card required</div>
+      <div class="proof-item">📍 Verified by both sides</div>
     </div>
 
   </div>
@@ -1221,11 +1128,11 @@ footer {
 <!-- ── FREE MODEL BANNER ── -->
 <div style="border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);padding:16px 40px;text-align:center;">
   <p style="font-size:14px;color:rgba(255,255,255,0.45);margin:0;">
-    🏡 <strong style="color:rgba(255,255,255,0.7);">Free for homeowners</strong> &nbsp;·&nbsp; 🔨 <strong style="color:#fb923c;">Contractors from $69/mo</strong> &nbsp;·&nbsp; 📍 Launching soon in your neighborhood
+    🏡 <strong style="color:rgba(255,255,255,0.7);">Free for homeowners</strong> &nbsp;·&nbsp; 🔨 <strong style="color:#fb923c;">Founding contractors $69/month</strong> &nbsp;·&nbsp; 📍 Explore your neighborhood in the app
   </p>
 </div>
 
-<!-- ── MAP PREVIEW ── -->
+<!-- ── CODED MAP DEMO ── -->
 <section class="map-section">
   <div class="map-container">
     <div class="map-label">
@@ -1251,9 +1158,12 @@ footer {
       <div class="park" style="left:55%; top:62%; width:10%; height:9%;">🌿</div>
 
       <!-- Map UI -->
-      <div class="map-ui-top">
-        <div class="map-count-badge">📍 64 jobs nearby · Street View</div>
-        <button class="map-legend-btn">🎨 Legend ⌄</button>
+      <div class="map-ui-top" aria-hidden="true">
+        <div class="map-control map-category">All Categories <span class="map-chevron"></span></div>
+        <div class="map-control map-location">
+          <span class="map-location-icon"><svg width="16" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22s7-6.3 7-12a7 7 0 1 0-14 0c0 5.7 7 12 7 12Z" fill="#ea580c"/><circle cx="12" cy="10" r="2.5" fill="white"/></svg></span>
+          Your location
+        </div>
       </div>
 
       <!-- Individual Pins -->
@@ -1283,7 +1193,6 @@ footer {
           <span>⚡</span>
         </div>
         <div class="pin-verified">✓</div>
-        <div class="pin-count">×3 nearby</div>
       </div>
 
       <div class="map-pin" style="left:78%; top:20%; animation-delay:0.5s;">
@@ -1312,7 +1221,6 @@ footer {
           <span>🏗</span>
         </div>
         <div class="pin-verified">✓</div>
-        <div class="pin-count">×2 nearby</div>
       </div>
 
       <div class="map-pin" style="left:58%; top:36%; animation-delay:0.9s;">
@@ -1329,49 +1237,43 @@ footer {
         <div class="pin-verified">✓</div>
       </div>
 
-      <!-- Unclaimed pin -->
-      <div class="map-pin" style="left:72%; top:38%; animation-delay:1.1s;">
-        <div class="pin-body" style="background:#f59e0b; border-style:dashed; opacity:.85;">
-          <span>⚠️</span>
-        </div>
-        <div style="position:absolute;top:-8px;right:-8px;background:#dc2626;color:white;font-size:8px;font-weight:800;padding:2px 5px;border-radius:8px;border:1.5px solid white;font-family:'Barlow',sans-serif;">2d</div>
-      </div>
-
       <!-- Clusters -->
       <div class="cluster" style="left:25%; top:65%; animation-delay:1.2s;">
-        <div class="cluster-outer" style="width:52px;height:52px;background:rgba(220,38,38,0.2);border:2px solid rgba(220,38,38,0.4);">
-          <div class="cluster-inner" style="width:38px;height:38px;background:#dc2626;box-shadow:0 3px 12px rgba(220,38,38,0.5);">
+        <div class="cluster-outer" style="width:52px;height:52px;">
+          <div class="cluster-inner" style="width:38px;height:38px;">
             <span style="font-size:13px;font-weight:800;">12</span>
-            <span style="font-size:8px;opacity:.7;">jobs</span>
           </div>
         </div>
-        <div style="position:absolute;top:-2px;right:-2px;width:16px;height:16px;border-radius:50%;background:#16a34a;border:2px solid white;display:flex;align-items:center;justify-content:center;font-size:8px;color:white;font-weight:800;">✓</div>
-        <div style="position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);background:rgba(15,23,42,.85);color:white;font-size:8px;font-weight:700;padding:2px 6px;border-radius:6px;white-space:nowrap;font-family:'Barlow',sans-serif;border:1px solid rgba(255,255,255,.15);">4 contractors</div>
       </div>
 
       <div class="cluster" style="left:55%; top:70%; animation-delay:1.3s;">
-        <div class="cluster-outer" style="width:44px;height:44px;background:rgba(37,99,235,0.2);border:2px solid rgba(37,99,235,0.4);">
-          <div class="cluster-inner" style="width:32px;height:32px;background:#2563eb;box-shadow:0 3px 12px rgba(37,99,235,0.5);">
+        <div class="cluster-outer" style="width:44px;height:44px;">
+          <div class="cluster-inner" style="width:32px;height:32px;">
             <span style="font-size:12px;font-weight:800;">8</span>
-            <span style="font-size:8px;opacity:.7;">jobs</span>
           </div>
         </div>
-        <div style="position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);background:rgba(15,23,42,.85);color:white;font-size:8px;font-weight:700;padding:2px 6px;border-radius:6px;white-space:nowrap;font-family:'Barlow',sans-serif;border:1px solid rgba(255,255,255,.15);">3 contractors</div>
       </div>
 
       <div class="cluster" style="left:80%; top:68%; animation-delay:1.4s;">
-        <div class="cluster-outer" style="width:62px;height:62px;background:rgba(124,58,237,0.2);border:2px solid rgba(124,58,237,0.4);">
-          <div class="cluster-inner" style="width:46px;height:46px;background:#7c3aed;box-shadow:0 3px 12px rgba(124,58,237,0.5);">
+        <div class="cluster-outer" style="width:62px;height:62px;">
+          <div class="cluster-inner" style="width:46px;height:46px;">
             <span style="font-size:15px;font-weight:800;">23</span>
-            <span style="font-size:8px;opacity:.7;">jobs</span>
           </div>
         </div>
-        <div style="position:absolute;top:-2px;right:-2px;width:16px;height:16px;border-radius:50%;background:#16a34a;border:2px solid white;display:flex;align-items:center;justify-content:center;font-size:8px;color:white;font-weight:800;">✓</div>
-        <div style="position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);background:rgba(15,23,42,.85);color:white;font-size:8px;font-weight:700;padding:2px 6px;border-radius:6px;white-space:nowrap;font-family:'Barlow',sans-serif;border:1px solid rgba(255,255,255,.15);">6 contractors</div>
       </div>
 
-      <!-- Add pin button -->
-      <button class="map-add-btn">＋ Add a Pin</button>
+      <div class="map-radius" aria-hidden="true">
+        <span class="map-radius-label">Radius</span>
+        <span class="map-radius-option">5 mi</span>
+        <span class="map-radius-option active">15 mi</span>
+        <span class="map-radius-option">25 mi</span>
+        <span class="map-radius-option">50 mi</span>
+        <span class="map-radius-option">100 mi</span>
+      </div>
+      <a class="map-add-btn" href="https://neighbrr.app/">
+        <svg width="17" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22s7-6.3 7-12a7 7 0 1 0-14 0c0 5.7 7 12 7 12Z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="2"/></svg>
+        Drop a Pin
+      </a>
     </div>
   </div>
 </section>
@@ -1384,16 +1286,16 @@ footer {
       <div class="stat-label">Cost for homeowners — free to browse and drop pins</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">72%</div>
-      <div class="stat-label">Homeowners prefer neighbor referrals over anonymous reviews</div>
+      <div class="stat-num">90</div>
+      <div class="stat-label">Days free for founding contractors</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">$500+</div>
-      <div class="stat-label">Typical contractor cost per booked job on lead platforms in 2026</div>
+      <div class="stat-num">$0</div>
+      <div class="stat-label">Per-lead fees for contractors</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">$99</div>
-      <div class="stat-label">Neighbrr Pro — flat monthly rate, no per-lead fees</div>
+      <div class="stat-num">$69</div>
+      <div class="stat-label">Founding contractor rate per month — no per-lead fees</div>
     </div>
   </div>
 </section>
@@ -1402,7 +1304,7 @@ footer {
 <section class="how-section">
   <div class="section-tag">How It Works</div>
   <h2 class="section-title">Simple as dropping<br><em>a pin.</em></h2>
-  <p class="section-sub">No complicated setup. Your neighbors do the work. You just confirm.</p>
+  <p class="section-sub">A completed job becomes a trusted recommendation for the neighborhood.</p>
 
   <div class="steps">
     <div class="step">
@@ -1413,21 +1315,21 @@ footer {
     </div>
     <div class="step">
       <div class="step-num">2</div>
-      <span class="step-icon">📱</span>
-      <div class="step-title">Contractor Confirms</div>
-      <div class="step-body">We text the contractor a confirmation link. One tap confirms the job. No app download required.</div>
+      <span class="step-icon">📨</span>
+      <div class="step-title">Homeowner Shares the Pin</div>
+      <div class="step-body">The homeowner shares the pin with the contractor who did the job.</div>
     </div>
     <div class="step">
       <div class="step-num">3</div>
       <span class="step-icon">✅</span>
-      <div class="step-title">Pin Gets Verified</div>
-      <div class="step-body">The pin appears on the map with a green verified badge. Both parties confirmed. Trust established.</div>
+      <div class="step-title">Contractor Reviews</div>
+      <div class="step-body">The contractor opens the link, reviews the pin, and confirms the job. No app download required.</div>
     </div>
     <div class="step">
       <div class="step-num">4</div>
       <span class="step-icon">📍</span>
       <div class="step-title">Neighbors Discover</div>
-      <div class="step-body">Every neighbor who opens Neighbrr sees exactly who was trusted on their street. No cold searching required.</div>
+      <div class="step-body">Once confirmed, the pin gets a verified badge so neighbors can discover a contractor someone nearby hired.</div>
     </div>
   </div>
 </section>
@@ -1459,7 +1361,7 @@ footer {
       </div>
       <div class="comparison-item"><div class="comparison-check warm-check">✓</div>Verified reviews tied to real addresses on your street</div>
       <div class="comparison-item"><div class="comparison-check warm-check">✓</div>Exclusive pins — your neighbor chose one contractor</div>
-      <div class="comparison-item"><div class="comparison-check warm-check">✓</div>Contractors pay $99/mo — homeowners pay nothing</div>
+      <div class="comparison-item"><div class="comparison-check warm-check">✓</div>Founding contractors pay $69/month — homeowners pay nothing</div>
       <div class="comparison-item"><div class="comparison-check warm-check">✓</div>Neighbors find you — you don't chase them</div>
       <div class="comparison-item"><div class="comparison-check warm-check">✓</div>Free for homeowners — no subscription, no credit card</div>
     </div>
@@ -1486,7 +1388,7 @@ footer {
         <li>Drop a pin after your job — help your neighbors too</li>
         <li>No subscription. No credit card. No fees.</li>
       </ul>
-      <a href="#waitlist" class="split-btn secondary">Get Early Access — It's Free →</a>
+      <a href="https://neighbrr.app/" class="split-btn secondary">Explore Neighbrr — It's Free →</a>
     </div>
 
     <div class="split-card contractor">
@@ -1496,22 +1398,22 @@ footer {
       <ul class="split-features">
         <li>Verified profile on the neighborhood map</li>
         <li>No shared leads — your pin is exclusively yours</li>
-        <li>One job pays for your entire year</li>
-        <li>No app needed to confirm jobs — one SMS tap</li>
+        <li>Predictable monthly pricing with no per-lead fees</li>
+        <li>Review pins through a link shared by the homeowner</li>
         <li>Neighborhood Approved ✅ badge</li>
       </ul>
       <div class="pricing-pills">
-        <div class="pricing-pill founding">🏆 $69/mo — Founding Rate</div>
-        <div class="pricing-pill pro">$99/mo Pro · $79/mo Annual</div>
+        <div class="pricing-pill founding">🏆 Special Founding Contractor Rate — $69/month</div>
       </div>
-      <a href="#waitlist" class="split-btn primary">Reserve My Founding Rate →</a>
+      <p class="pricing-detail">90-day free trial. Then $69/month, locked while your subscription stays active.</p>
+      <a href="https://neighbrr.app/" class="split-btn primary">Join as a Contractor →</a>
     </div>
   </div>
 </section>
 
 <!-- ── PRICING COMPARISON ── -->
 <section style="padding:80px 40px;max-width:900px;margin:0 auto;">
-  <div class="section-tag">What Contractors Pay in 2026</div>
+  <div class="section-tag">Special Founding Contractor Rate</div>
   <h2 class="section-title" style="margin-bottom:12px;">The math doesn't lie.</h2>
   <p class="section-sub" style="margin-bottom:48px;">Traditional advertising platforms charge contractors thousands per month for leads shared with multiple competitors. Neighbrr charges a flat monthly rate — no shared leads, no bidding wars.</p>
 
@@ -1570,8 +1472,8 @@ footer {
         <div style="font-size:15px;font-weight:800;color:#ea580c;">Neighbrr</div>
       </div>
       <div style="text-align:center;">
-        <div style="font-size:20px;font-weight:800;color:#ea580c;font-family:'Playfair Display',serif;">$99<span style="font-size:12px;color:#94a3b8;">/mo</span></div>
-        <div style="font-size:10px;color:#64748b;margin-top:2px;">Flat rate · no surprises</div>
+        <div style="font-size:20px;font-weight:800;color:#ea580c;font-family:'Playfair Display',serif;">$69<span style="font-size:12px;color:#94a3b8;">/month</span></div>
+        <div style="font-size:11px;color:#94a3b8;margin-top:2px;">After a 90-day free trial · rate locked while active</div>
       </div>
       <div style="font-size:13px;color:#22c55e;text-align:center;font-weight:700;">✓ Zero — your pin is yours</div>
     </div>
@@ -1585,11 +1487,11 @@ footer {
   <!-- Bottom CTA -->
   <div style="text-align:center;margin-top:40px;">
     <div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:white;margin-bottom:10px;line-height:1.3;">
-      One Neighbrr job covers<br>your <em style="color:#ea580c;">entire year.</em>
+      Grow your neighborhood presence<br>for <em style="color:#ea580c;">$69/month.</em>
     </div>
-    <p style="font-size:15px;color:#64748b;margin-bottom:24px;">Everything after that is pure profit.</p>
-    <a href="#waitlist" style="display:inline-block;background:#ea580c;color:white;border-radius:12px;padding:14px 32px;font-size:15px;font-weight:800;text-decoration:none;font-family:'Barlow',sans-serif;box-shadow:0 8px 24px rgba(234,88,12,.35);">
-      Claim Your Founding Rate →
+    <p style="font-size:15px;color:#64748b;margin-bottom:24px;">Special founding contractor rate. No shared leads or per-lead fees.</p>
+    <a href="https://neighbrr.app/" style="display:inline-block;background:#ea580c;color:white;border-radius:12px;padding:14px 32px;font-size:15px;font-weight:800;text-decoration:none;font-family:'Barlow',sans-serif;box-shadow:0 8px 24px rgba(234,88,12,.35);">
+      Open Neighbrr →
     </a>
   </div>
 </section>
@@ -1597,22 +1499,12 @@ footer {
 <!-- ── FINAL CTA ── -->
 <section class="cta-section">
   <div class="cta-content">
-    <div class="section-tag">Join the Waitlist</div>
-    <h2 class="cta-title">Your neighborhood<br>is waiting for<br><em>Neighbrr.</em></h2>
-    <p class="cta-sub">Neighbrr is free for homeowners. Be the first in your neighborhood.</p>
+    <div class="section-tag">Get Started</div>
+    <h2 class="cta-title">Your neighborhood<br>is ready for<br><em>Neighbrr.</em></h2>
+    <p class="cta-sub">Find trusted contractors nearby or share one you've hired. Neighbrr is free for homeowners.</p>
 
-    <div class="form-wrapper" style="max-width:480px;">
-      <div class="form-tabs">
-        <button class="form-tab active" onclick="setTab('homeowner', this)">🏡 Homeowner</button>
-        <button class="form-tab" onclick="setTab('contractor', this)">🔨 Contractor</button>
-      </div>
-      <div class="form-row">
-        <input type="email" class="form-input" id="emailInput2" placeholder="Your email address" />
-        <button class="form-btn" onclick="submitForm2()">Join →</button>
-      </div>
-      <p class="contractor-note">
-        <span>Neighborhood Approved ✅</span> · Launching soon near you
-      </p>
+    <div class="launch-actions">
+      <a class="launch-btn" href="https://neighbrr.app/">Get Started on Neighbrr →</a>
     </div>
   </div>
 </section>
@@ -1620,22 +1512,7 @@ footer {
 <!-- ── FOOTER ── -->
 <footer>
   <div class="footer-logo">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 140" style="height:44px;width:auto;">
-  <g transform="translate(10, 8)">
-    <path d="M60 4 C38 4 20 22 20 44 C20 72 60 112 60 112 C60 112 100 72 100 44 C100 22 82 4 60 4 Z" fill="#ea580c"/>
-    <circle cx="60" cy="44" r="22" fill="#c2440a" opacity="0.6"/>
-    <g transform="translate(60,44)">
-      <polygon points="0,-14 -13,0 13,0" fill="white" opacity="0.95"/>
-      <rect x="-10" y="0" width="20" height="14" fill="white" opacity="0.95" rx="1"/>
-      <rect x="-4" y="5" width="8" height="9" fill="#c2440a" rx="1"/>
-      <rect x="-9" y="2" width="5" height="5" fill="#c2440a" rx="0.5"/>
-      <rect x="4" y="2" width="5" height="5" fill="#c2440a" rx="0.5"/>
-    </g>
-  </g>
-  <line x1="128" y1="24" x2="128" y2="116" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round"/>
-  <text x="146" y="82" font-family="Montserrat, Arial, sans-serif" font-weight="800" font-size="62" fill="#ea580c" letter-spacing="-1">Neighbrr</text>
-  <text x="148" y="108" font-family="Montserrat, Arial, sans-serif" font-weight="600" font-size="15" fill="rgba(255,255,255,0.4)" letter-spacing="3">DROP A PIN, HELP A NEIGHBRR</text>
-</svg>
+    <img src="assets/neighbrr-logo.svg" alt="Neighbrr" class="site-logo site-logo-footer">
 
   </div>
   <div class="footer-links">
@@ -1643,110 +1520,12 @@ footer {
     <a href="about-us.html" class="footer-link">About us</a>
     <a href="privacy-policy.html" class="footer-link">Privacy</a>
     <a href="terms.html" class="footer-link">Terms of Service</a>
-    <a href="#waitlist" class="footer-link">Get Early Access</a>
+    <a href="https://neighbrr.app/" class="footer-link">Open Neighbrr</a>
   </div>
   <div class="footer-right">© 2026 Neighbrr · <a href="privacy-policy.html" style="color:rgba(255,255,255,.35);text-decoration:none;">Privacy Policy</a> · <a href="terms.html" style="color:rgba(255,255,255,.35);text-decoration:none;">Terms</a> · All rights reserved</div>
 </footer>
 
 <script>
-  // Tab switching
-  let currentTab = 'homeowner';
-
-  function setTab(tab, btn) {
-    currentTab = tab;
-    const tabs = btn.parentElement.querySelectorAll('.form-tab');
-    tabs.forEach(t => t.classList.remove('active'));
-    btn.classList.add('active');
-
-    const noteEl = btn.closest('.form-wrapper')?.querySelector('.contractor-note') ||
-                   document.getElementById('formNote');
-    const btnTextEl = btn.closest('.form-wrapper')?.querySelector('.form-btn span') ||
-                      document.getElementById('btnText');
-
-    if (tab === 'contractor') {
-      if (noteEl) noteEl.innerHTML = 'Reserve your <span>founding rate — $69/mo locked forever.</span> Limited spots per zip code.';
-      if (btnTextEl) btnTextEl.textContent = 'Reserve My Spot →';
-    } else {
-      if (noteEl) noteEl.innerHTML = 'No spam. No credit card. Just early access when we launch in your neighborhood.';
-      if (btnTextEl) btnTextEl.textContent = 'Get Early Access →';
-    }
-  }
-
-  const BUBBLE_ENDPOINT = 'https://shy-base-599c.ibodrichenko.workers.dev';
-
-  async function sendToBubble(email, type) {
-    console.log('Sending to Bubble:', { email, type });
-    let res;
-    try {
-      res = await fetch(BUBBLE_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, type })
-      });
-    } catch (networkErr) {
-      console.error('Network error (CORS?):', networkErr);
-      throw networkErr;
-    }
-    const text = await res.text();
-    console.log('Bubble response status:', res.status);
-    console.log('Bubble response body:', text);
-    if (!res.ok) throw new Error('Bubble error ' + res.status + ': ' + text);
-    return res;
-  }
-
-  async function submitForm() {
-    const emailEl = document.getElementById('emailInput');
-    const btnText = document.getElementById('btnText');
-    const email = emailEl.value.trim();
-
-    if (!email || !email.includes('@')) {
-      emailEl.style.borderColor = '#dc2626';
-      emailEl.style.boxShadow = '0 0 0 3px rgba(220,38,38,0.15)';
-      setTimeout(() => { emailEl.style.borderColor = ''; emailEl.style.boxShadow = ''; }, 2000);
-      return;
-    }
-
-    btnText.textContent = '⏳ Saving...';
-
-    try {
-      await sendToBubble(email, currentTab);
-      emailEl.closest('.form-wrapper').style.display = 'none';
-      const successEl = document.getElementById('successMsg');
-      successEl.style.display = 'flex';
-      successEl.style.animation = 'fadeUp 0.5s ease forwards';
-    } catch (e) {
-      btnText.textContent = '❌ Error, try again';
-      setTimeout(() => { btnText.textContent = 'Get Early Access →'; }, 3000);
-    }
-  }
-
-  async function submitForm2() {
-    const emailEl = document.getElementById('emailInput2');
-    const email = emailEl.value.trim();
-
-    if (!email || !email.includes('@')) {
-      emailEl.style.borderColor = '#dc2626';
-      setTimeout(() => { emailEl.style.borderColor = ''; }, 2000);
-      return;
-    }
-
-    emailEl.placeholder = '⏳ Saving...';
-    emailEl.value = '';
-    emailEl.disabled = true;
-
-    try {
-      await sendToBubble(email, currentTab);
-      emailEl.placeholder = '✅ You\'re on the list!';
-      emailEl.style.borderColor = '#16a34a';
-      emailEl.style.background = 'rgba(22,163,74,0.08)';
-    } catch (e) {
-      emailEl.placeholder = '❌ Error — try again';
-      emailEl.disabled = false;
-      emailEl.style.borderColor = '#dc2626';
-      setTimeout(() => { emailEl.placeholder = 'Your email address'; emailEl.style.borderColor = ''; }, 3000);
-    }
-  }
-
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {

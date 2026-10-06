@@ -1,0 +1,43 @@
+.site-logo {
+  display: block;
+  flex: none;
+  object-fit: contain;
+  object-position: center;
+}
+
+.site-logo-nav {
+  width: 185px;
+  height: 81px;
+}
+
+.site-logo-footer {
+  width: 150px;
+  height: 66px;
+}
+
+.site-logo-legal {
+  width: 145px;
+  height: 64px;
+}
+
+@media (max-width: 768px) {
+  nav {
+    height: 64px;
+  }
+
+  .site-logo-nav {
+    width: 137px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-logo-nav {
+    width: 118px;
+    height: 52px;
+  }
+
+  .nav-back {
+    display: none;
+  }
+}
